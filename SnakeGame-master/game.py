@@ -7,7 +7,7 @@ import pygame
 pygame.init()
 
 DISPLAY = pygame.display.set_mode((500, 500))  # FIXME make window size adjustable
-DISPLAY.fill([255,255,255])
+DISPLAY.fill([0,0,0])
 # Temporary window:  fifty 10 by 10 squares
 
 
@@ -36,7 +36,7 @@ while playing is True:
         food.new_food(snake.get_pos[0])
     else:
         snake.move()
-    DISPLAY.fill([255, 255, 255])
+    DISPLAY.fill([0,0,0])
     snake.draw_on_display(DISPLAY)
     food.draw_on_display(DISPLAY)
     pygame.display.flip()

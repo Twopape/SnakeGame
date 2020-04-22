@@ -41,7 +41,7 @@ class Snake():
         if self.direction == "down":
             self.position[1] += 10
             if self.position[1] > 500:
-                self.position[0] = 0
+                self.position[1] = 0
         x = self.position[::]
         self.body.insert(0, x)
         if not ate:
