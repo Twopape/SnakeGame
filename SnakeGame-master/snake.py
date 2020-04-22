@@ -8,8 +8,8 @@ class Snake():
         self.rows = 50
         self.columns = 50
         self.position = [random.randint(0,self.columns-1)*self.square_size
-            , random.randint(0,self.rows-1)*self.square_size]  # FIXME need to make spawn pos/direction random
-        self.body = [self.position, [self.position[0] - 10, self.position[1]]]
+            , random.randint(0,self.rows-1)*self.square_size]
+        self.body = [self.position]
         self.direction = self.directions[random.randint(0,3)]
 
 
