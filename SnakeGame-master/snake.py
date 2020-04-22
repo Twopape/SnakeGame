@@ -1,6 +1,5 @@
 import pygame
 
-# FIXME need to prevent snake from leaving screen
 class Snake():
     def __init__(self):
         self.position = [100,50]  # FIXME need to make spawn pos/direction random
@@ -29,12 +28,20 @@ class Snake():
     def move(self, ate=False):
         if self.direction == "right":
             self.position[0] += 10
+            if self.position[0] > 500:
+                self.position[0] = 0
         if self.direction == "left":
             self.position[0] -= 10
+            if self.position[0] < 0:
+                self.position[0] = 500
         if self.direction == "up":
             self.position[1] -= 10
+            if self.position[1] < 0:
+                self.position[1] = 500
         if self.direction == "down":
             self.position[1] += 10
+            if self.position[1] > 500:
+                self.position[0] = 0
         x = self.position[::]
         self.body.insert(0, x)
         if not ate:
