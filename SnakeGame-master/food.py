@@ -10,8 +10,8 @@ class Food():
         self.columns = 50
 
     def new_food(self, snake_pos):
-        new_pos = [random.randint(0,self.columns)*self.square_size - self.square_size
-            , random.randint(0,self.rows)*self.square_size - self.square_size]
+        new_pos = [random.randint(0,self.columns-1)*self.square_size
+            , random.randint(0,self.rows-1)*self.square_size]
         while any(new_pos == body for body in snake_pos):
             new_pos = [random.randint(0, self.columns) * self.square_size
                 , random.randint(0, self.rows) * self.square_size]

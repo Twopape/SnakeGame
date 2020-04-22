@@ -40,5 +40,5 @@ while playing is True:
     snake.draw_on_display(DISPLAY)
     food.draw_on_display(DISPLAY)
     pygame.display.flip()
-    clock.tick(5)
+    clock.tick(10)
     print("refreshed")
