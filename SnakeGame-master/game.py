@@ -100,7 +100,7 @@ while game is True:
     elif screen == "lose":
         for event in pygame.event.get(): # Arrow key inputs
             if event.type == pygame.MOUSEBUTTONDOWN:
-                screen = "game"
+                screen = "menu"
                 snake = Snake()
                 food.new_food(snake.get_pos[0])
 
@@ -113,10 +113,13 @@ while game is True:
 
 
     elif screen == "menu":
+        DISPLAY.fill([0, 0, 0])
         response = button("hell",150,150,50,50,[255,255,0],[255,0,0],[255,0,255],menu_buttons, sample_action)
         if response == "game": # simple menu system
             screen = "game"
         pygame.display.flip()
+
+        # idk why but with out the code at the bottom, it crashes
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
