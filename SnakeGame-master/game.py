@@ -4,11 +4,20 @@ import pygame
 
 
 # initalizes objects/game
-pygame.init()
+pygame.init() #creates game
+pygame.font.init() # gets pygame fonts
+snake = Snake() # creates snake
+clock = pygame.time.Clock() #fps setter
+food = Food() #creats food
 
 DISPLAY = pygame.display.set_mode((500, 500))  # FIXME make window size adjustable
-DISPLAY.fill([0,0,0])
+pygame.display.set_caption('Snake Game')
+
 # Temporary window:  fifty 10 by 10 squares
+
+
+# TEXT FONTS
+menu_buttons = pygame.font.SysFont("comicsansms",20)
 
 # Sound Files
 lose_sound = pygame.mixer.Sound("sound/game_loss.wav")
@@ -17,23 +26,42 @@ hee_heed = False
 # Image Files
 michael_img = pygame.image.load("images/michael.png")
 game = True
-snake = Snake()
-clock = pygame.time.Clock()
-food = Food()
+
 food.new_food(snake.get_pos[0]) #spawns food at a random location not on snake
 
 
 # Global Variables
-screen = "game"
+screen = "menu"
+
+def button(msg,x,y,w,h,color,click_color,text_color, font, action=None):
+    mouse = pygame.mouse.get_pos()
+    print(mouse)
+    click = pygame.mouse.get_pressed()
+    print(click)
+    if x+w > mouse[0] > x and y+h > mouse[1] > y:
+        button = pygame.draw.rect(DISPLAY, click_color,(x,y,w,h))
+        if click[0] == 1 and action != None:
+            return action()
+    else:
+        button = pygame.draw.rect(DISPLAY,color,(x,y,w,h))
+    text = font.render(msg,True,text_color)
+    text_rect = text.get_rect()
+    text_rect.center = (x+w//2,y+h//2)
+    DISPLAY.blit(text, text_rect)
 
 
 
+
+
+def sample_action():
+    return "game"
 
 def check_for_death():
     snake.debug()
     if any(snake.get_pos[1] == part for part in snake.get_pos[0][1:]):
-        # check if head is GOING to be
-        return True                                                     # on a body part next frame
+        # check if head is on body part this frame
+
+        return True
     return False
 
 while game is True:
@@ -76,15 +104,25 @@ while game is True:
                 snake = Snake()
                 food.new_food(snake.get_pos[0])
 
-        if not hee_heed:
+        if not hee_heed: # hee hee is the loss sound
             pygame.mixer.Sound.play(lose_sound)
             hee_heed = True
         DISPLAY.fill([255, 0, 0])
         DISPLAY.blit(michael_img, (100, 100))
-
-
         pygame.display.flip()
 
-    clock.tick(5)
+
+    elif screen == "menu":
+        response = button("hell",150,150,50,50,[255,255,0],[255,0,0],[255,0,255],menu_buttons, sample_action)
+        if response == "game": # simple menu system
+            screen = "game"
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+
+
+    clock.tick(200) #FIXME we need to have different clock timers for the menu and the game or snake too speed or button lags
     print(screen)
     print("refreshed")
