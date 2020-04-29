@@ -9,6 +9,7 @@ pygame.font.init() # gets pygame fonts
 snake = Snake() # creates snake
 clock = pygame.time.Clock() #fps setter
 food = Food() #creats food
+scores = dict()
 
 DISPLAY = pygame.display.set_mode((500, 500))  # FIXME make window size adjustable
 pygame.display.set_caption('Snake Game')
@@ -49,9 +50,37 @@ def button(msg,x,y,w,h,color,click_color,text_color, font, action=None):
     text_rect.center = (x+w//2,y+h//2)
     DISPLAY.blit(text, text_rect)
 
+def record_score(name, score):
+    file = open("db.txt", "w+")
+    csvlist = file.readlines()
+    for line in csvlist:
+        item = line.split(",")
+        scores[item[0]] = item[1]
+    if name in scores:
+        if scores[name] >= score:
+            file.close()
+            return False
+        else:
+            scores[name] = score
+            file.close()
+            file = open("db.txt", "w+")
+            for key in scores:
+                file.write(f"\n{key},{scores[key]}")
+            file.close()
+            return True
+    else:
+        scores[name] = score
+        file.close()
+        file = open("db.txt", "w+")
+        for key in scores:
+            file.write(f"\n{key},{scores[key]}")
+        file.close()
 
+def menu_action():
+    return "menu"
 
-
+def record_action():
+    return "record"
 
 def sample_action():
     return "game"
@@ -98,23 +127,40 @@ while game is True:
 
 
     elif screen == "lose":
-        for event in pygame.event.get(): # Arrow key inputs
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                screen = "menu"
-                snake = Snake()
-                food.new_food(snake.get_pos[0])
-
+        DISPLAY.fill([0, 0, 0])
         if not hee_heed: # hee hee is the loss sound
             pygame.mixer.Sound.play(lose_sound)
             hee_heed = True
-        DISPLAY.fill([255, 0, 0])
-        DISPLAY.blit(michael_img, (100, 100))
+        response = button("Play!", 150, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons,
+                          sample_action)
+        response2 = button("Record score!", 250, 250, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons,
+                          record_action)
+        response3 = button(f"Score: {len(snake.get_pos[0]) - 1}", 200, 200, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons)
         pygame.display.flip()
+
+        if response == "game":  # simple menu system
+            food = Food()
+            snake = Snake()
+            DISPLAY.fill([0, 0, 0])
+            food.new_food(snake.get_pos[0])
+            snake.draw_on_display(DISPLAY)
+            food.draw_on_display(DISPLAY)
+            screen = "game"
+
+        if response2 == "record":
+            score = len(snake.get_pos[0]) - 1
+        pygame.display.flip()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+
 
 
     elif screen == "menu":
         DISPLAY.fill([0, 0, 0])
-        response = button("hell",150,150,50,50,[255,255,0],[255,0,0],[255,0,255],menu_buttons, sample_action)
+        response = button("Play!",150,150,50,50,[0,0,0],[0,0,0],[255,0,255],menu_buttons, sample_action)
         if response == "game": # simple menu system
             screen = "game"
         pygame.display.flip()
@@ -126,6 +172,6 @@ while game is True:
                 exit()
 
 
-    clock.tick(200) #FIXME we need to have different clock timers for the menu and the game or snake too speed or button lags
+    clock.tick(10) #FIXME we need to have different clock timers for the menu and the game or snake too speed or button lags
     print(screen)
     print("refreshed")
