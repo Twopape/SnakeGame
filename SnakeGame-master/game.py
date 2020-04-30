@@ -95,15 +95,17 @@ def record_action():
     name = simpledialog.askstring(title="Test",
                                   prompt="What's your Name?:")
     if name is not None:
-        if type(name) == str:
-            if record_score(name, score):
-                messagebox.showinfo("Success", f"Score of {score} recorded for player {name}!")
-            else:
-                messagebox.showinfo("Failure", f"{name} already has a higher score than {score}.")
+        if name != '':
+            try:
+                int(name)
+                messagebox.showinfo("Invalid.", "The name you entered is invalid.")
+            except TypeError:
+                if record_score(name, score):
+                    messagebox.showinfo("Success", f"Score of {score} recorded for player {name}!")
+                else:
+                    messagebox.showinfo("Failure", f"{name} already has a higher score than {score}.")
         else:
             messagebox.showinfo("Invalid.", "The name you entered is invalid.")
-    elif name == '':
-        messagebox.showinfo("No entry.", "You did not enter a name.")
     return "menu"
 
 def sample_action():
