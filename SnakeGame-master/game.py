@@ -1,6 +1,12 @@
 from snake import Snake
 from food import Food
 import pygame
+import tkinter as tk
+from tkinter import simpledialog, messagebox
+from os import path
+
+ROOT = tk.Tk()
+ROOT.withdraw()
 
 
 # initalizes objects/game
@@ -51,36 +57,54 @@ def button(msg,x,y,w,h,color,click_color,text_color, font, action=None):
     DISPLAY.blit(text, text_rect)
 
 def record_score(name, score):
-    file = open("db.txt", "w+")
-    csvlist = file.readlines()
-    for line in csvlist:
-        item = line.split(",")
-        scores[item[0]] = item[1]
-    if name in scores:
-        if scores[name] >= score:
-            file.close()
-            return False
+    if path.exists("db.txt"):
+        file = open("db.txt", "r")
+        csvlist = file.readlines()
+        for line in csvlist:
+            item = line.split(",")
+            scores[item[0]] = item[1]
+        if name in scores:
+            if int(scores[name]) >= score:
+                file.close()
+                return False
+            else:
+                file.close()
+                file = open("db.txt", "a")
+                file.write(f"\n{name},{score}")
+                file.close()
+                return True
         else:
-            scores[name] = score
             file.close()
-            file = open("db.txt", "w+")
-            for key in scores:
-                file.write(f"\n{key},{scores[key]}")
+            file = open("db.txt", "a")
+            file.write(f"\n{name},{score}")
             file.close()
             return True
     else:
-        scores[name] = score
+        file = open("db.txt", "w")
+        file.write(f"{name},{score}")
         file.close()
-        file = open("db.txt", "w+")
-        for key in scores:
-            file.write(f"\n{key},{scores[key]}")
-        file.close()
+        return True
+
+
 
 def menu_action():
     return "menu"
 
 def record_action():
-    return "record"
+    score = len(snake.get_pos[0]) - 1
+    name = simpledialog.askstring(title="Test",
+                                  prompt="What's your Name?:")
+    if name is not None:
+        if type(name) == str:
+            if record_score(name, score):
+                messagebox.showinfo("Success", f"Score of {score} recorded for player {name}!")
+            else:
+                messagebox.showinfo("Failure", f"{name} already has a higher score than {score}.")
+        else:
+            messagebox.showinfo("Invalid.", "The name you entered is invalid.")
+    elif name == '':
+        messagebox.showinfo("No entry.", "You did not enter a name.")
+    return "menu"
 
 def sample_action():
     return "game"
@@ -146,9 +170,6 @@ while game is True:
             snake.draw_on_display(DISPLAY)
             food.draw_on_display(DISPLAY)
             screen = "game"
-
-        if response2 == "record":
-            score = len(snake.get_pos[0]) - 1
         pygame.display.flip()
 
         for event in pygame.event.get():
