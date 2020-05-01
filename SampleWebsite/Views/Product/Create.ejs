@@ -1,0 +1,20 @@
+<% layout('../layouts/mainlayout.ejs') -%><br/>
+<form action="/Product/CreateProduct" method="POST">   
+    <table>
+        <tr>
+            <td>Id: </td>
+            <td><input id="_id" name="_id" 
+                 value="<%= product._id ? product._id : '' %>" type="text" ></td>
+        </tr>
+        <tr>
+            <td>Product Name:</td>
+            <td><input id="productName" name="productName" type="text" 
+                 value=<%= product.productName ? product.productName : '' %> ></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> <input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+<%= errorMessage %><br/>

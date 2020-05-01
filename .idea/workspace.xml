@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0b5f08d4-6b3f-4e63-ae31-ac52a89bd33b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/SnakeGame-master/test/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SnakeGame-master/test/test_snake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="John9471 &lt;64114292+john9471@users.noreply.github.com&gt;" />
+      </list>
+    </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/Twopape/SnakeGame.git" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1audeFIrwBdl78hNiolYa2OSOy4" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SnakeGame-master" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Classes\2515\Lab6\SnakeGame\SnakeGame-master" />
+      <recent name="D:\Classes\2515\Lab6\SnakeGame\SnakeGame-master\sound" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Classes\2515\Lab6\SnakeGame\SnakeGame-master\sound" />
+      <recent name="D:\Classes\2515\Lab6\SnakeGame\SnakeGame-master\images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="game" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SnakeGame" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SnakeGame-master" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SnakeGame-master/game.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.game" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b5f08d4-6b3f-4e63-ae31-ac52a89bd33b" name="Default Changelist" comment="" />
+      <created>1587589505731</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587589505731</updated>
+    </task>
+    <task id="LOCAL-00001" summary="- added loss screen&#10;- added sound sample for game loss&#10;- added sound sample when collecting food&#10;- added ability to restart game by clicking on loss screen">
+      <created>1587615004781</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587615004782</updated>
+    </task>
+    <task id="LOCAL-00002" summary="-added hell mode to snake game&#10;-added sample menu screen&#10;-working button function">
+      <created>1587967225648</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587967225648</updated>
+    </task>
+    <task id="LOCAL-00003" summary="- loss screen now redirects to menu&#10;- screen is no longer red after loss">
+      <created>1587967704622</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587967704622</updated>
+    </task>
+    <task id="LOCAL-00004" summary="- Created website to display scores">
+      <created>1588302918093</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588302918093</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- added loss screen&#10;- added sound sample for game loss&#10;- added sound sample when collecting food&#10;- added ability to restart game by clicking on loss screen" />
+    <MESSAGE value="-added hell mode to snake game&#10;-added sample menu screen&#10;-working button function" />
+    <MESSAGE value="- loss screen now redirects to menu&#10;- screen is no longer red after loss" />
+    <MESSAGE value="- Created website to display scores" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Created website to display scores" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="561" y="64" key="#Notifications" timestamp="1588286100268">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="561" y="64" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1588286100268" />
+    <state x="748" y="216" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588303452268">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="748" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1588303452268" />
+    <state x="567" y="1" width="730" height="823" key="CommitChangelistDialog2" timestamp="1588302913901">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="567" y="1" width="730" height="823" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1588302913901" />
+    <state x="-114" y="147" key="DiffContextDialog" timestamp="1587616616342">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="-114" y="147" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1587616616342" />
+    <state x="0" y="337" key="FileChooserDialogImpl" timestamp="1588303627731">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="337" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588303627731" />
+    <state width="1076" height="208" key="GridCell.Tab.0.bottom" timestamp="1587972556210">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1076" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587972556210" />
+    <state width="1076" height="208" key="GridCell.Tab.0.center" timestamp="1587972556210">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1076" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587972556210" />
+    <state width="1076" height="208" key="GridCell.Tab.0.left" timestamp="1587972556210">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1076" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587972556210" />
+    <state width="1076" height="208" key="GridCell.Tab.0.right" timestamp="1587972556210">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1076" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587972556210" />
+    <state width="1076" height="258" key="GridCell.Tab.1.bottom" timestamp="1587615009348">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1076" height="258" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587615009348" />
+    <state width="1076" height="258" key="GridCell.Tab.1.center" timestamp="1587615009348">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1076" height="258" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587615009348" />
+    <state width="1076" height="258" key="GridCell.Tab.1.left" timestamp="1587615009348">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1076" height="258" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587615009348" />
+    <state width="1076" height="258" key="GridCell.Tab.1.right" timestamp="1587615009348">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1076" height="258" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587615009348" />
+    <state x="507" y="56" key="SettingsEditor" timestamp="1587589519381">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="507" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587589519381" />
+    <state x="653" y="175" key="VCS.ChangeListViewerDialog" timestamp="1588286235766">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="653" y="175" key="VCS.ChangeListViewerDialog/0.0.1536.824@0.0.1536.824" timestamp="1588286235766" />
+    <state x="506" y="156" key="Vcs.Push.Dialog.v2" timestamp="1588302924527">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="506" y="156" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1588302924527" />
+    <state x="690" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1588294306622">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="690" y="255" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1588294306622" />
+    <state x="803" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588296665779">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="803" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1588296665779" />
+    <state x="714" y="215" key="git4idea.merge.GitMergeDialog" timestamp="1587616700714">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="714" y="215" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587616700714" />
+    <state x="631" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587944735843">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="631" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587944735843" />
+  </component>
+</project>

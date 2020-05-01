@@ -1,0 +1,23 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<br/><br/>
+<b>Product Listing</b>
+<br/><br/>
+<a href="/Product/Create">Create Product</a><br/><br/>
+<table>
+<% for(var i=0; i < products.length; i++) { %>
+    <tr>
+      <td><b>ID:</b><%= products[i]._id %></td>
+      <td><b>Product Name:</b> <%= products[i].productName %></td>
+      <td><a href='/Product/Detail?_id=<%= products[i]._id %>'>Detail</a></td>
+      <td><a href='/Product/Edit?_id=<%= products[i]._id %>'>Edit</a></td>
+    <td>
+        <form action="/Product/Delete" method="POST">
+            <input id="_id" name="_id" type="hidden" value=<%= products[i]._id %> />
+            <input type="submit" value="Delete">
+        </form>
+    </td>
+
+    </tr>
+ <% } %>
+</table>
+

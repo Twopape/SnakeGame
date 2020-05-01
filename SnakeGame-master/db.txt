@@ -1,2 +1,6 @@
 Cam,8
+<<<<<<< HEAD
 Stella,8
+=======
+John,9
+>>>>>>> 00b7ab38e85d27dfde7b19a559fe5bf0e54abd94
