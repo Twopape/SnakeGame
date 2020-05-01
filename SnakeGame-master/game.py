@@ -99,7 +99,7 @@ def record_action():
             try:
                 int(name)
                 messagebox.showinfo("Invalid.", "The name you entered is invalid.")
-            except TypeError:
+            except ValueError:
                 if record_score(name, score):
                     messagebox.showinfo("Success", f"Score of {score} recorded for player {name}!")
                 else:
@@ -112,7 +112,6 @@ def sample_action():
     return "game"
 
 def check_for_death():
-    snake.debug()
     if any(snake.get_pos[1] == part for part in snake.get_pos[0][1:]):
         # check if head is on body part this frame
 
