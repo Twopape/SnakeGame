@@ -26,8 +26,9 @@ class Snake():
         if self.direction != "up":
             self.direction = "down"
 
+    @property
     def debug(self):
-        print(self.direction, self.position, self.body)
+        return [self.direction, self.position, self.body]
 
     def move(self, ate=False):
         if self.direction == "right":
