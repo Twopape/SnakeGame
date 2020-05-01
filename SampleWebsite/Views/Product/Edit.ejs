@@ -1,0 +1,13 @@
+<% layout('../layouts/mainlayout.ejs') -%>
+<br/><br/>
+<b>Product Detail</b>
+
+<form action="/Product/Update" method="POST">
+<b>ID: </b> <%= product._id %> <br/>
+<b>Product Name:</b> 
+<input type='hidden' name="_id" value= <%= product._id %> /> <br/>
+<input type='text'  name="productName" 
+       value="<%= product.productName ? product.productName : '' %>"  /><br/>
+<input type="submit" value="Submit">
+</form>
+<%= errorMessage %>
