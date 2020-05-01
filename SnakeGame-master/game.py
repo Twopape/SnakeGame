@@ -60,6 +60,7 @@ def record_score(name, score):
     if path.exists("db.txt"):
         file = open("db.txt", "r")
         csvlist = file.readlines()
+        csvlist.pop(0)
         for line in csvlist:
             item = line.split(",")
             scores[item[0]] = item[1]
@@ -69,8 +70,10 @@ def record_score(name, score):
                 return False
             else:
                 file.close()
-                file = open("db.txt", "a")
-                file.write(f"\n{name},{score}")
+                scores[name] = score
+                file = open("db.txt", "w")
+                for key in scores:
+                    file.write(f"\n{key},{scores[key]}")
                 file.close()
                 return True
         else:
@@ -138,7 +141,7 @@ while game is True:
             screen = "lose"
 
         if snake.get_pos[1] == food.get_pos:
-            pygame.mixer.Sound.play(food_collect_sound)
+            # pygame.mixer.Sound.play(food_collect_sound)
             snake.move(ate=True) # makes snake longer if snake on food
             food.new_food(snake.get_pos[0])
         else:
@@ -154,7 +157,7 @@ while game is True:
     elif screen == "lose":
         DISPLAY.fill([0, 0, 0])
         if not hee_heed: # hee hee is the loss sound
-            pygame.mixer.Sound.play(lose_sound)
+            # pygame.mixer.Sound.play(lose_sound)
             hee_heed = True
         response = button("Play!", 150, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons,
                           sample_action)
