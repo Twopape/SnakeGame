@@ -40,7 +40,9 @@ food.new_food(snake.get_pos[0])  # spawns food at a random location not on snake
 screen = "menu"
 restart = True
 target_url = "http://localhost:1337"
-
+difficulty = ""
+score = 0
+hunger = 0 # time since last meal
 
 def upload():
     global screen
@@ -52,14 +54,14 @@ def upload():
         for person in csvlist[:-1]:
             data = {}
             data["player"] = person.split(",")[0]
-            data["score"] = "".join(list(person.split(",")[1])[:-1])
-            data["difficulty"] = "MJ"
+            data["score"] = int("".join(list(person.split(",")[1])[:-1]))
+            data["difficulty"] = difficulty.capitalize()
             response = requests.post(target_url + "/Player/AddScore", data=data)
             print(data, response)
         data = {}
         data["player"] = csvlist[-1].split(",")[0]
-        data["score"] = csvlist[-1].split(",")[1]
-        data["difficulty"] = "MJ"
+        data["score"] = int(csvlist[-1].split(",")[1])
+        data["difficulty"] = difficulty.capitalize()
         response = requests.post(target_url + "/Player/AddScore", data=data)
         print(data, response)
         messagebox.showinfo("Success!", f"Scores have been uploaded")
@@ -96,7 +98,7 @@ def record_score(name, score):
             item = line.split(",")
             scores[item[0]] = item[1]
         if name in scores:
-            if int(scores[name]) >= score:
+            if int(scores[name]) >= int(score):
                 file.close()
                 return False
             else:
@@ -104,30 +106,31 @@ def record_score(name, score):
                 scores[name] = score
                 file = open("db.txt", "w")
                 for key in scores:
-                    file.write(f"\n{key},{scores[key]}")
+                    file.write(f"\n{key},{int(scores[key])}")
                 file.close()
                 return True
         else:
             file.close()
             file = open("db.txt", "a")
-            file.write(f"\n{name},{score}")
+            file.write(f"\n{name},{int(score)}")
             file.close()
             return True
     else:
         file = open("db.txt", "w")
-        file.write(f"{name},{score}")
+        file.write(f"{name},{int(score)}")
         file.close()
         return True
 
 
 def menu_action():
-    return "menu"
+    global screen
+    screen = "menu"
 
 
 def record_action():
     global screen
+    global score
 
-    score = len(snake.get_pos[0]) - 1
     name = simpledialog.askstring(title="Test",
                                   prompt="What's your Name?:")
     if name is not None:
@@ -137,21 +140,45 @@ def record_action():
                 messagebox.showinfo("Invalid.", "The name you entered is invalid.")
             except ValueError:
                 if record_score(name, score):
-                    messagebox.showinfo("Success", f"Score of {score} recorded for player {name}!")
+                    messagebox.showinfo("Success", f"Score of {int(score)} recorded for player {name}!")
                     screen = "menu"
                     return "success"
                 else:
-                    messagebox.showinfo("Failure", f"{name} already has a higher score than {score}.")
+                    messagebox.showinfo("Failure", f"{name} already has a higher score than {int(score)}.")
         else:
 
             messagebox.showinfo("Invalid.", "The name you entered is invalid.")
     return "menu"
 
+def calculate_score(ate=False):
+    global score
+    global hunger
 
-def game_action():
+    multiplier = 0
+    if difficulty == "easy":
+        multiplier = 5
+    elif difficulty == "medium":
+        multiplier = 7.5
+    elif difficulty == "hard":
+        multiplier = 10
+    if ate == False:
+        hunger += 1
+        score = score - hunger
+    else:
+        hunger = 0
+        score = score + 1000*multiplier*(len(snake.get_pos[0])/10+1)
+
+    if score <= 0:
+        score = 0
+
+
+
+
+def easy_action():
     global screen
     global food
     global snake
+    global difficulty
 
     food = Food()
     snake = Snake()
@@ -159,6 +186,37 @@ def game_action():
     food.new_food(snake.get_pos[0])
     snake.draw_on_display(DISPLAY)
     food.draw_on_display(DISPLAY)
+    difficulty = "easy"
+    screen = "game"
+
+def medium_action():
+    global screen
+    global food
+    global snake
+    global difficulty
+
+    food = Food()
+    snake = Snake()
+    DISPLAY.fill([0, 0, 0])
+    food.new_food(snake.get_pos[0])
+    snake.draw_on_display(DISPLAY)
+    food.draw_on_display(DISPLAY)
+    difficulty = "medium"
+    screen = "game"
+
+def hard_action():
+    global screen
+    global food
+    global snake
+    global difficulty
+
+    food = Food()
+    snake = Snake()
+    DISPLAY.fill([0, 0, 0])
+    food.new_food(snake.get_pos[0])
+    snake.draw_on_display(DISPLAY)
+    food.draw_on_display(DISPLAY)
+    difficulty = "hard"
     screen = "game"
 
 
@@ -195,11 +253,15 @@ while game is True:
         if snake.get_pos[1] == food.get_pos:
             # pygame.mixer.Sound.play(food_collect_sound)
             snake.move(ate=True)  # makes snake longer if snake on food
+            calculate_score(ate=True)
             food.new_food(snake.get_pos[0])
         else:
+            calculate_score()
             snake.move()
 
         DISPLAY.fill([0, 0, 0])
+
+        button(str(int(score)), 250, 0, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons)
         snake.draw_on_display(DISPLAY)
         food.draw_on_display(DISPLAY)
         pygame.display.flip()
@@ -215,10 +277,8 @@ while game is True:
                           menu_action)
         button("Record score!", 250, 250, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons,
                            record_action)
-        button(f"Score: {len(snake.get_pos[0]) - 1}", 200, 200, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255],
+        button(f"Score: {int(score)}", 200, 200, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255],
                            menu_buttons)
-        button("Upload Scores", 150, 250, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons,
-               upload)
         pygame.display.flip()
 
 
@@ -230,8 +290,11 @@ while game is True:
 
 
     elif screen == "menu":
+        score = 0
         DISPLAY.fill([0, 0, 0])
-        response = button("Play!", 150, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons, game_action)
+        response = button("EASY!", 150, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons, easy_action)
+        response2 = button("MEDIUM!", 235, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons, medium_action)
+        response3 = button("HARD!", 350, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons, hard_action)
         button("Upload Scores", 150, 250, 50, 50, [100, 0, 0], [200, 0, 0], [255, 0, 255], menu_buttons,
                upload)
         if response == "game":  # simple menu system
@@ -244,6 +307,16 @@ while game is True:
                 pygame.quit()
                 exit()
 
-    clock.tick(15)  # FIXME we need to have different clock timers for the menu and the game or snake too speed or button lags
+    if screen != "game":
+        clock.tick(200)  # FIXME we need to have different clock timers for the menu and the game or snake too speed or button lags
+    else:
+        if difficulty == "easy":
+            clock.tick(10)
+        elif difficulty == "medium":
+            clock.tick(15)
+        elif difficulty == "hard":
+            clock.tick(20)
+        else:
+            clock.tick(1)
     print(screen)
     print("refreshed")
