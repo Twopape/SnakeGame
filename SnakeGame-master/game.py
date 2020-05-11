@@ -50,20 +50,17 @@ def upload():
     if path.exists("db.txt"): # FIXME
         file = open("db.txt", "r")
         csvlist = file.readlines()
-        print(csvlist)
         for person in csvlist[:-1]:
             data = {}
             data["player"] = person.split(",")[0]
             data["score"] = int("".join(list(person.split(",")[1])[:-1]))
             data["difficulty"] = difficulty.capitalize()
-            response = requests.post(target_url + "/Player/AddScore", data=data)
-            print(data, response)
+            requests.post(target_url + "/Player/AddScore", data=data)
         data = {}
         data["player"] = csvlist[-1].split(",")[0]
         data["score"] = int(csvlist[-1].split(",")[1])
         data["difficulty"] = difficulty.capitalize()
-        response = requests.post(target_url + "/Player/AddScore", data=data)
-        print(data, response)
+        requests.post(target_url + "/Player/AddScore", data=data)
         messagebox.showinfo("Success!", f"Scores have been uploaded")
         file.close()
         remove("db.txt")
@@ -74,15 +71,13 @@ def upload():
 
 def button(msg, x, y, w, h, color, click_color, text_color, font, action=None):
     mouse = pygame.mouse.get_pos()
-    print(mouse)
     click = pygame.mouse.get_pressed()
-    print(click)
     if x + w > mouse[0] > x and y + h > mouse[1] > y:
-        button = pygame.draw.rect(DISPLAY, click_color, (x, y, w, h))
+        pygame.draw.rect(DISPLAY, click_color, (x, y, w, h))
         if click[0] == 1 and action != None:
             return action()
     else:
-        button = pygame.draw.rect(DISPLAY, color, (x, y, w, h))
+        pygame.draw.rect(DISPLAY, color, (x, y, w, h))
     text = font.render(msg, True, text_color)
     text_rect = text.get_rect()
     text_rect.center = (x + w // 2, y + h // 2)
@@ -247,7 +242,6 @@ while game is True:
 
         # snake.debug() #debug info
         if check_for_death():  # snake will die next round
-            print("snake death")
             screen = "lose"
 
         if snake.get_pos[1] == food.get_pos:
@@ -318,5 +312,4 @@ while game is True:
             clock.tick(20)
         else:
             clock.tick(1)
-    print(screen)
-    print("refreshed")
+
