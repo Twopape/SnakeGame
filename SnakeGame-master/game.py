@@ -64,6 +64,7 @@ def upload():
         messagebox.showinfo("Success!", f"Scores have been uploaded")
         file.close()
         remove("db.txt")
+        with open("db.txt", 'w'): pass
     else:
         messagebox.showinfo("FAILURE!", f"No new Scores")
 
