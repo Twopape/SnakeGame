@@ -50,23 +50,30 @@ def upload():
     if path.exists("db.txt"): # FIXME
         file = open("db.txt", "r")
         csvlist = file.readlines()
-        for person in csvlist[:-1]:
+        print(csvlist)
+        if csvlist != []:
+            for person in csvlist[:-1]:
+                data = {}
+                data["player"] = person.split(",")[0]
+                data["score"] = int("".join(list(person.split(",")[1])[:-1]))
+                data["difficulty"] = person.split(",")[2].capitalize()
+                response = requests.post(target_url + "/Player/AddScore", data=data)
+                print(response)
             data = {}
-            data["player"] = person.split(",")[0]
-            data["score"] = int("".join(list(person.split(",")[1])[:-1]))
+            data["player"] = csvlist[-1].split(",")[0]
+            data["score"] = int(csvlist[-1].split(",")[1])
             data["difficulty"] = difficulty.capitalize()
-            requests.post(target_url + "/Player/AddScore", data=data)
-        data = {}
-        data["player"] = csvlist[-1].split(",")[0]
-        data["score"] = int(csvlist[-1].split(",")[1])
-        data["difficulty"] = difficulty.capitalize()
-        requests.post(target_url + "/Player/AddScore", data=data)
-        messagebox.showinfo("Success!", f"Scores have been uploaded")
-        file.close()
-        remove("db.txt")
-        with open("db.txt", 'w'): pass
+            response = requests.post(target_url + "/Player/AddScore", data=data)
+            print(response)
+            messagebox.showinfo("Success!", f"Scores have been uploaded")
+            file.close()
+            remove("db.txt")
+        else:
+            messagebox.showinfo("FAILURE!", f"No new Scores")
+            return ""
     else:
         messagebox.showinfo("FAILURE!", f"No new Scores")
+        return ""
 
 
 
@@ -89,7 +96,7 @@ def record_score(name, score):
     if path.exists("db.txt"):
         file = open("db.txt", "r")
         csvlist = file.readlines()
-        csvlist.pop(0)
+
         for line in csvlist:
             item = line.split(",")
             scores[item[0]] = item[1]
@@ -102,18 +109,19 @@ def record_score(name, score):
                 scores[name] = score
                 file = open("db.txt", "w")
                 for key in scores:
-                    file.write(f"\n{key},{int(scores[key])}")
+                    file.write(f"\n{key},{int(scores[key])},{difficulty}")
+                csvlist.pop(0)
                 file.close()
                 return True
         else:
             file.close()
             file = open("db.txt", "a")
-            file.write(f"\n{name},{int(score)}")
+            file.write(f"\n{name},{int(score)},{difficulty}")
             file.close()
             return True
     else:
         file = open("db.txt", "w")
-        file.write(f"{name},{int(score)}")
+        file.write(f"{name},{int(score)},{difficulty}")
         file.close()
         return True
 
@@ -290,8 +298,9 @@ while game is True:
         response = button("EASY!", 150, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons, easy_action)
         response2 = button("MEDIUM!", 235, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons, medium_action)
         response3 = button("HARD!", 350, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], menu_buttons, hard_action)
-        button("Upload Scores", 150, 250, 50, 50, [100, 0, 0], [200, 0, 0], [255, 0, 255], menu_buttons,
-               upload)
+        if path.exists("db.txt"):
+            button("Upload Scores", 150, 250, 50, 50, [100, 0, 0], [200, 0, 0], [255, 0, 255], menu_buttons,
+                   upload)
         if response == "game":  # simple menu system
             screen = "game"
         pygame.display.flip()
