@@ -79,11 +79,11 @@ def upload():
 
 def button(msg, x, y, w, h, color, click_color, text_color, font, action=None):
     mouse = pygame.mouse.get_pos()
-    click = pygame.mouse.get_pressed()
     if x + w > mouse[0] > x and y + h > mouse[1] > y:
         pygame.draw.rect(DISPLAY, click_color, (x, y, w, h))
-        if click[0] == 1 and action != None:
-            return action()
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                return action()
     else:
         pygame.draw.rect(DISPLAY, color, (x, y, w, h))
     text = font.render(msg, True, text_color)
