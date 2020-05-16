@@ -219,6 +219,8 @@ class Game():
                             self.snake.up()
                         if event.key == pygame.K_DOWN:
                             self.snake.down()
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
 
                 # snake.debug() #debug info
                 if self.check_for_death():  # snake will die next round
