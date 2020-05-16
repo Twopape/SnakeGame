@@ -9,13 +9,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
     <h2>Leaderboard</h2>
   <table>
     <tr>
-      <td style="width:220px">
+      <td style="width:550px">
         <h3 >Username: </h3>
       </td>
-      <td style="width:400px">
+      <td style="width:550px">
         <h3>Score: </h3>
       </td>
-      <td style="width:250px">
+      <td style="width:300px">
         <h3>Diffifulty: </h3>
       </td>
     </tr>
