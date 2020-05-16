@@ -2,3 +2,4 @@ CMONEY,137114,hard
 dstfd,36262,medium
 ghgh,47646,medium
 ghjgh,25617,medium
+hgjg,11731,easy
