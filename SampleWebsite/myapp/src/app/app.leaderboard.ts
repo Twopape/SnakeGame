@@ -1,39 +1,23 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
 
   selector: 'Leaderboard',
-  template:`
-    <h2>Leaderboard</h2>
+  template: `      <h2>Leaderboard</h2>
   <table>
     <tr>
-      <td style="width:550px">
-        <h3 >Username: </h3>
-      </td>
-      <td style="width:550px">
-        <h3>Score: </h3>
-      </td>
-      <td style="width:300px">
-        <h3>Diffifulty: </h3>
-      </td>
+      <td style="width:550px"><h3>Username:</h3></td>
+      <td style="width:550px"><h3>Score: </h3></td>
+      <td style="width:300px"><h3>Difficulty: </h3></td>
     </tr>
     <tr *ngFor="let player of _leaderboard">
-      <td>
-        {{player.player}}
-      </td>
-      <td>
-        {{player.score}}
-      </td>
-      <td>
-        {{player.difficulty}}
-      </td>
-
+      <td>          {{player.player}}        </td>
+      <td>          {{player.score}}        </td>
+      <td>          {{player.difficulty}}        </td>
     </tr>
-  </table>
-  <p style='color:red;'>{{this._errorMessage}}</p>
-  `
+  </table>  ` // FIXME weird ` symbol on webpage i cant get rid of
 })
 export class Leaderboard {
   _http:HttpClient;
