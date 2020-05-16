@@ -17,7 +17,7 @@ import {formatCurrency} from "@angular/common";
         <input type="text"  style="width:300px" [(ngModel)]="_difficulty"/>
       </td>
       <td>
-        <input type="submit" style="width:300px" value="Add Item to Menu" (click)="submitScore()">
+        <input type="submit" style="width:300px" value="Add Item to Menu" (click)="submitScore()" style="color:black">
       </td>
     </table>
     `
