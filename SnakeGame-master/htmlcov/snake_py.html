@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for snake.py: 75%</title>
+    <title>Coverage for snake.py: 83%</title>
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.hotkeys.js"></script>
@@ -17,13 +17,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>snake.py</b> :
-            <span class="pc_cov">75%</span>
+            <span class="pc_cov">83%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
             52 statements &nbsp;
-            <span class="run shortkey_r button_toggle_run">39 run</span>
-            <span class="mis show_mis shortkey_m button_toggle_mis">13 missing</span>
+            <span class="run shortkey_r button_toggle_run">43 run</span>
+            <span class="mis show_mis shortkey_m button_toggle_mis">9 missing</span>
             <span class="exc show_exc shortkey_x button_toggle_exc">0 excluded</span>
         </h2>
     </div>
@@ -85,8 +85,8 @@
     <p id="t32" class="pln"><span class="n"><a href="#t32">32</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t33" class="run"><span class="n"><a href="#t33">33</a></span><span class="t">    <span class="key">def</span> <span class="nam">move</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">ate</span><span class="op">=</span><span class="key">False</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t34" class="run"><span class="n"><a href="#t34">34</a></span><span class="t">        <span class="key">if</span> <span class="nam">self</span><span class="op">.</span><span class="nam">direction</span> <span class="op">==</span> <span class="str">"right"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t35" class="mis show_mis"><span class="n"><a href="#t35">35</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">position</span><span class="op">[</span><span class="num">0</span><span class="op">]</span> <span class="op">+=</span> <span class="num">10</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t36" class="mis show_mis"><span class="n"><a href="#t36">36</a></span><span class="t">            <span class="key">if</span> <span class="nam">self</span><span class="op">.</span><span class="nam">position</span><span class="op">[</span><span class="num">0</span><span class="op">]</span> <span class="op">==</span> <span class="num">500</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t35" class="run"><span class="n"><a href="#t35">35</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">position</span><span class="op">[</span><span class="num">0</span><span class="op">]</span> <span class="op">+=</span> <span class="num">10</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t36" class="run"><span class="n"><a href="#t36">36</a></span><span class="t">            <span class="key">if</span> <span class="nam">self</span><span class="op">.</span><span class="nam">position</span><span class="op">[</span><span class="num">0</span><span class="op">]</span> <span class="op">==</span> <span class="num">500</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t37" class="mis show_mis"><span class="n"><a href="#t37">37</a></span><span class="t">                <span class="nam">self</span><span class="op">.</span><span class="nam">position</span><span class="op">[</span><span class="num">0</span><span class="op">]</span> <span class="op">=</span> <span class="num">0</span>&nbsp;</span><span class="r"></span></p>
     <p id="t38" class="run"><span class="n"><a href="#t38">38</a></span><span class="t">        <span class="key">if</span> <span class="nam">self</span><span class="op">.</span><span class="nam">direction</span> <span class="op">==</span> <span class="str">"left"</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t39" class="run"><span class="n"><a href="#t39">39</a></span><span class="t">            <span class="nam">self</span><span class="op">.</span><span class="nam">position</span><span class="op">[</span><span class="num">0</span><span class="op">]</span> <span class="op">-=</span> <span class="num">10</span>&nbsp;</span><span class="r"></span></p>
@@ -107,10 +107,10 @@
     <p id="t54" class="pln"><span class="n"><a href="#t54">54</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t55" class="run"><span class="n"><a href="#t55">55</a></span><span class="t">    <span class="key">def</span> <span class="nam">draw_on_display</span><span class="op">(</span><span class="nam">self</span><span class="op">,</span> <span class="nam">display</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t56" class="pln"><span class="n"><a href="#t56">56</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t57" class="mis show_mis"><span class="n"><a href="#t57">57</a></span><span class="t">        <span class="nam">pygame</span><span class="op">.</span><span class="nam">draw</span><span class="op">.</span><span class="nam">rect</span><span class="op">(</span><span class="nam">display</span><span class="op">,</span> <span class="op">(</span><span class="num">0</span><span class="op">,</span> <span class="num">255</span><span class="op">,</span> <span class="num">0</span><span class="op">)</span><span class="op">,</span> <span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">body</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">,</span> <span class="nam">self</span><span class="op">.</span><span class="nam">body</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t57" class="run"><span class="n"><a href="#t57">57</a></span><span class="t">        <span class="nam">pygame</span><span class="op">.</span><span class="nam">draw</span><span class="op">.</span><span class="nam">rect</span><span class="op">(</span><span class="nam">display</span><span class="op">,</span> <span class="op">(</span><span class="num">0</span><span class="op">,</span> <span class="num">255</span><span class="op">,</span> <span class="num">0</span><span class="op">)</span><span class="op">,</span> <span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">body</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">,</span> <span class="nam">self</span><span class="op">.</span><span class="nam">body</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t58" class="pln"><span class="n"><a href="#t58">58</a></span><span class="t">                                                <span class="nam">self</span><span class="op">.</span><span class="nam">square_size</span><span class="op">,</span> <span class="nam">self</span><span class="op">.</span><span class="nam">square_size</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t59" class="pln"><span class="n"><a href="#t59">59</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t60" class="mis show_mis"><span class="n"><a href="#t60">60</a></span><span class="t">        <span class="key">for</span> <span class="nam">section</span> <span class="key">in</span> <span class="nam">self</span><span class="op">.</span><span class="nam">body</span><span class="op">[</span><span class="num">1</span><span class="op">:</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t60" class="run"><span class="n"><a href="#t60">60</a></span><span class="t">        <span class="key">for</span> <span class="nam">section</span> <span class="key">in</span> <span class="nam">self</span><span class="op">.</span><span class="nam">body</span><span class="op">[</span><span class="num">1</span><span class="op">:</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p id="t61" class="mis show_mis"><span class="n"><a href="#t61">61</a></span><span class="t">            <span class="nam">pygame</span><span class="op">.</span><span class="nam">draw</span><span class="op">.</span><span class="nam">rect</span><span class="op">(</span><span class="nam">display</span><span class="op">,</span> <span class="op">(</span><span class="num">255</span><span class="op">,</span><span class="num">0</span><span class="op">,</span><span class="num">0</span><span class="op">)</span><span class="op">,</span> <span class="op">(</span><span class="nam">section</span><span class="op">[</span><span class="num">0</span><span class="op">]</span><span class="op">,</span> <span class="nam">section</span><span class="op">[</span><span class="num">1</span><span class="op">]</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t62" class="pln"><span class="n"><a href="#t62">62</a></span><span class="t">                                                  <span class="nam">self</span><span class="op">.</span><span class="nam">square_size</span><span class="op">,</span> <span class="nam">self</span><span class="op">.</span><span class="nam">square_size</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t63" class="pln"><span class="n"><a href="#t63">63</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
@@ -121,8 +121,8 @@
 <div id="footer">
     <div class="content">
         <p>
-            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.1</a>,
-            created at 2020-05-01 11:37
+            <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.0.3</a>,
+            created at 2020-05-15 23:09
         </p>
     </div>
 </div>

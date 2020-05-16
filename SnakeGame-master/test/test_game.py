@@ -19,6 +19,15 @@ class test_game(TestCase):
 
     @mock.patch('game.Game.play')
     def test_game_loop(self, mock_play):
+        self.game.screen = "menu"
+        self.game.play()
+        self.assertTrue(mock_play.called)
+
+        self.game.screen = "lose"
+        self.game.play()
+        self.assertTrue(mock_play.called)
+
+        self.game.screen = "game"
         self.game.play()
         self.assertTrue(mock_play.called)
 
@@ -33,7 +42,7 @@ class test_game(TestCase):
         self.assertTrue(mock_record_score.called)
 
     @mock.patch('game.Game.button')
-    def test_record_score(self,mock_button):
+    def test_button(self,mock_button):
         def test():
             pass
         self.game.button("tester", 123,123,123,123,[3,4,4],[3,4,4],[3,4,4],None)
@@ -50,4 +59,10 @@ class test_game(TestCase):
     def test_record_action(self, mock_record_action):
         self.game.record_action()
         self.assertTrue(mock_record_action.called)
+
+    @mock.patch('game.Game.check_for_death')
+    def test_check_for_death(self, mock_check_for_death):
+        self.game.check_for_death()
+        self.assertTrue(mock_check_for_death.called)
+
 
