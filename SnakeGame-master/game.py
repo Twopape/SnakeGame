@@ -237,7 +237,7 @@ class Game():
 
                 self.DISPLAY.fill([0, 0, 0])
 
-                self.button(str(int(self.score)), 250, 0, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], self.menu_buttons)
+                self.button(str(int(self.score)), 250, 0, 50, 50, [0, 0, 0], [0, 0, 0], [255, 255, 255], self.menu_buttons)
                 self.snake.draw_on_display(self.DISPLAY)
                 self.food.draw_on_display(self.DISPLAY)
                 pygame.display.flip()
@@ -249,11 +249,11 @@ class Game():
                 if not self.hee_heed:  # hee hee is the loss sound
                     # pygame.mixer.Sound.play(lose_sound)
                     self.hee_heed = True
-                self.button("Play!", 150, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], self.menu_buttons,
+                self.button("Menu", 150, 150, 70, 35, [70,102,255], [90,120,255], [255, 255, 255], self.menu_buttons,
                             self.menu_action)
-                self.button("Record score!", 250, 250, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255], self.menu_buttons,
+                self.button("Record score!", 250, 250, 175, 35, [70,102,255], [90,120,255], [255, 255, 255], self.menu_buttons,
                             self.record_action)
-                self.button(f"Score: {int(self.score)}", 200, 200, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255],
+                self.button(f"Score: {int(self.score)}", 200, 200, 50, 35, [0,0,0], [0,0,0], [255, 255, 255],
                             self.menu_buttons)
                 pygame.display.flip()
 
@@ -267,14 +267,14 @@ class Game():
             elif self.screen == "menu":
                 self.score = 0
                 self.DISPLAY.fill([0, 0, 0])
-                response = self.button("EASY!", 150, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255],
+                response = self.button("EASY!", 75, 150, 100, 35, [70,102,255], [90,120,255], [255, 255, 255],
                                        self.menu_buttons, self.easy_action)
-                response2 = self.button("MEDIUM!", 235, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255],
+                response2 = self.button("MEDIUM!", 210, 150, 100, 35, [70,102,255], [90,120,255], [255, 255, 255],
                                         self.menu_buttons, self.medium_action)
-                response3 = self.button("HARD!", 350, 150, 50, 50, [0, 0, 0], [0, 0, 0], [255, 0, 255],
+                response3 = self.button("HARD!", 345, 150, 100, 35, [70,102,255], [90,120,255], [255, 255, 255],
                                         self.menu_buttons, self.hard_action)
                 if path.exists("db.txt"):
-                    self.button("Upload Scores", 150, 250, 50, 50, [100, 0, 0], [200, 0, 0], [255, 0, 255],
+                    self.button("Upload Scores", 184, 250, 150, 35, [70,102,255], [90,120,255], [255, 255, 255],
                                 self.menu_buttons,
                                 self.upload)
                 if response == "game":  # simple menu system

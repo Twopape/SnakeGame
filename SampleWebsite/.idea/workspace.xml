@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e0194c8e-936d-4857-9916-8203fc437ad0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myapp/src/app/app.leaderboard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/myapp/src/app/app.leaderboard.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,12 +70,24 @@
       <workItem from="1588889465528" duration="1404000" />
       <workItem from="1588965358294" duration="1604000" />
       <workItem from="1589416659584" duration="301000" />
-      <workItem from="1589610082929" duration="2084000" />
+      <workItem from="1589610082929" duration="2787000" />
     </task>
+    <task id="LOCAL-00001" summary="Minor edits to Website&#10;- fixed spelling of difficulty&#10;- removed add score admin feature">
+      <created>1589614962317</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589614962317</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Minor edits to Website&#10;- fixed spelling of difficulty&#10;- removed add score admin feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor edits to Website&#10;- fixed spelling of difficulty&#10;- removed add score admin feature" />
   </component>
   <component name="WindowStateProjectService">
     <state x="538" y="216" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582767250640">
@@ -88,10 +98,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1588283480258" />
-    <state x="602" y="14" key="CommitChangelistDialog2" timestamp="1589614916033">
+    <state x="602" y="0" key="CommitChangelistDialog2" timestamp="1589614961298">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="602" y="14" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589614916033" />
+    <state x="602" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589614961298" />
     <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1588283771873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -100,6 +110,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588283392597" />
+    <state x="430" y="156" key="Vcs.Push.Dialog.v2" timestamp="1589614966316">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="430" y="156" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589614966316" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589610141069">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
