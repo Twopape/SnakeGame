@@ -11,7 +11,7 @@ class Game():
     def __init__(self):
         self.ROOT = tk.Tk()
         self.ROOT.withdraw()
-
+        self.DISPLAY = pygame.display.set_mode((500, 500))  # FIXME make window size adjustable
         # initalizes objects/game
         pygame.init()  # creates game
         pygame.font.init()  # gets pygame fonts
@@ -20,7 +20,7 @@ class Game():
         self.food = Food()  # creates food
         self.scores = dict()
 
-        self.DISPLAY = pygame.display.set_mode((500, 500))  # FIXME make window size adjustable
+
         pygame.display.set_caption('Snake Game')
 
         # Temporary window:  fifty 10 by 10 squares
@@ -208,7 +208,7 @@ class Game():
         center = 240
         while score >= 10:
             score /= 10
-            center -4
+            center -= 4
         return center
     def play(self):
         while self.game is True:

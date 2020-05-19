@@ -11,7 +11,9 @@ class Snake():
             , random.randint(0,self.rows-1)*self.square_size]
         self.body = [self.position]
         self.direction = self.directions[random.randint(0,3)]
-
+        self.snake_head = pygame.image.load("images/snake_head.png").convert()
+        self.angle = 0
+        self.rect = self.snake_head.get_rect()
 
     def right(self):
         if self.direction != "left":
@@ -53,13 +55,25 @@ class Snake():
             self.body = self.body[:-1]
 
     def draw_on_display(self, display):
-
-        pygame.draw.rect(display, (0, 255, 0), (self.body[0][0], self.body[0][1],
-                                                self.square_size, self.square_size))
+        if self.direction == "right":
+            self.angle = 180
+            self.image = pygame.transform.rotate(self.snake_head, self.angle)
+            display.blit(self.image,(self.body[0][0],self.body[0][1]))
+        elif self.direction == "up":
+            self.angle = 270
+            self.image = pygame.transform.rotate(self.snake_head, self.angle)
+            display.blit(self.image,(self.body[0][0],self.body[0][1]-10))
+        elif self.direction == "left":
+            self.angle = 0
+            self.image = pygame.transform.rotate(self.snake_head, self.angle)
+            display.blit(self.image,(self.body[0][0]-10,self.body[0][1]))
+        elif self.direction == "down":
+            self.angle = 90
+            self.image = pygame.transform.rotate(self.snake_head, self.angle)
+            display.blit(self.image,(self.body[0][0],self.body[0][1]))
 
         for section in self.body[1:]:
-            pygame.draw.rect(display, (255,0,0), (section[0], section[1],
-                                                  self.square_size, self.square_size))
+            display.blit(pygame.image.load("images/snake_body.png").convert(), (section[0], section[1]))
 
     @property
     def get_pos(self):

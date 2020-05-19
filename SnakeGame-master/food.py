@@ -18,8 +18,8 @@ class Food():
         self.food_position = new_pos
 
     def draw_on_display(self, display):
-        pygame.draw.rect(display, (0, 0, 255), (self.food_position[0], self.food_position[1],
-                         self.square_size, self.square_size))
+        display.blit(pygame.image.load("images/apple.png").convert(), (self.food_position[0], self.food_position[1],
+                        ))
 
     @property
     def get_pos(self):
