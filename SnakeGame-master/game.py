@@ -204,6 +204,12 @@ class Game():
             return True
         return False
 
+    def center(self,score):
+        center = 240
+        while score >= 10:
+            score /= 10
+            center -4
+        return center
     def play(self):
         while self.game is True:
 
@@ -237,7 +243,7 @@ class Game():
 
                 self.DISPLAY.fill([0, 0, 0])
 
-                self.button(str(int(self.score)), 250, 0, 50, 50, [0, 0, 0], [0, 0, 0], [255, 255, 255], self.menu_buttons)
+                self.button(str(int(self.score)), self.center(self.score), 0, 50, 50, [0, 0, 0], [0, 0, 0], [255, 255, 255], self.menu_buttons)
                 self.snake.draw_on_display(self.DISPLAY)
                 self.food.draw_on_display(self.DISPLAY)
                 pygame.display.flip()
