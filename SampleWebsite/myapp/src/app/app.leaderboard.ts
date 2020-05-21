@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
       <td style="width:550px"><h3>Score: </h3></td>
       <td style="width:300px"><h3>Difficulty: </h3></td>
     </tr>
-    <tr *ngFor="let player of _leaderboard">
+    <tr *ngFor="let player of _leaderboard.sort()">
       <td>          {{player.player}}        </td>
       <td>          {{player.score}}        </td>
       <td>          {{player.difficulty}}        </td>
@@ -35,6 +35,7 @@ export class Leaderboard {
       // Get data and wait for result.
       .subscribe(result => {
           this._leaderboard = result.players;
+
         },
 
         error =>{

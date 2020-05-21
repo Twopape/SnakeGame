@@ -57,9 +57,9 @@ class Game():
                     data = {}
                     data["player"] = person.split(",")[0]
                     data["score"] = int("".join(list(person.split(",")[1])[:-1]))
-                    data["difficulty"] = person.split(",")[2].capitalize()
+                    data["difficulty"] = person.split(",")[2][:-1].capitalize()
                     response = requests.post(self.target_url + "/Player/AddScore", data=data)
-                    print(response)
+                    print(response.text)
                 data = {}
                 data["player"] = csvlist[-1].split(",")[0]
                 data["score"] = int(csvlist[-1].split(",")[1])
